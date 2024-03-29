@@ -154,3 +154,20 @@ for Image Denoising described in [!RK[ref-3], !RK[ref-1]].
 
     // TODO: !LAR / !LAA into the table cell for example
 });
+
+describe('printer specific', () => {
+    test('command', () => {
+        const rawNode = rawNodeTemplate(`
+!SWEARIHATEIT[](testcommand)(@d 
+    - 1
+    - 2
+)
+`);
+        const { nodes, diagnostic: diagnostic1 } = applyVisitors([rawNode]);
+        (rawNode.parent as FileNode).children = nodes;
+
+        const diagnostic = applyMacrosFull(rawNode.parent as FileNode);
+        expect(diagnostic).toHaveLength(0);
+        expect(nodes).toMatchSnapshot();
+    });
+});

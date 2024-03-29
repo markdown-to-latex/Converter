@@ -786,6 +786,180 @@ Look at the pic. !PK[image-label-2] and !PK[image-label].
 ]
 `;
 
+exports[`printer specific command 1`] = `
+Array [
+  Object {
+    "command": "testcommand",
+    "data": Array [
+      Object {
+        "children": Array [
+          Object {
+            "bullet": Object {
+              "parent": [Circular],
+              "pos": Object {
+                "end": 40,
+                "start": 38,
+              },
+              "text": "- ",
+              "type": "Text",
+            },
+            "children": Array [
+              Object {
+                "children": Array [],
+                "parent": [Circular],
+                "pos": Object {
+                  "end": 41,
+                  "start": 40,
+                },
+                "text": "1",
+                "type": "Text",
+              },
+            ],
+            "loose": false,
+            "parent": [Circular],
+            "pos": Object {
+              "end": 41,
+              "start": 34,
+            },
+            "task": false,
+            "type": "ListItem",
+          },
+          Object {
+            "bullet": Object {
+              "parent": [Circular],
+              "pos": Object {
+                "end": 48,
+                "start": 46,
+              },
+              "text": "- ",
+              "type": "Text",
+            },
+            "children": Array [
+              Object {
+                "children": Array [],
+                "parent": [Circular],
+                "pos": Object {
+                  "end": 49,
+                  "start": 48,
+                },
+                "text": "2",
+                "type": "Text",
+              },
+            ],
+            "loose": false,
+            "parent": [Circular],
+            "pos": Object {
+              "end": 50,
+              "start": 42,
+            },
+            "task": false,
+            "type": "ListItem",
+          },
+        ],
+        "loose": false,
+        "ordered": false,
+        "parent": Object {
+          "keyArgs": Object {
+            "d": [Circular],
+          },
+          "keys": Object {
+            "d": Object {
+              "parent": [Circular],
+              "pos": Object {
+                "end": 32,
+                "start": 31,
+              },
+              "text": "d",
+              "type": "Text",
+            },
+          },
+          "label": Object {
+            "parent": [Circular],
+            "pos": Object {
+              "end": 15,
+              "start": 15,
+            },
+            "text": "",
+            "type": "Text",
+          },
+          "opcode": Object {
+            "parent": [Circular],
+            "pos": Object {
+              "end": 14,
+              "start": 2,
+            },
+            "text": "SWEARIHATEIT",
+            "type": "Text",
+          },
+          "parent": Object {
+            "children": [Circular],
+            "parent": null,
+            "path": "test.md",
+            "pos": Object {
+              "end": 52,
+              "start": 0,
+            },
+            "raw": "
+!SWEARIHATEIT[](testcommand)(@d 
+    - 1
+    - 2
+)
+",
+            "type": "File",
+          },
+          "pos": Object {
+            "end": 51,
+            "start": 1,
+          },
+          "posArgs": Array [
+            Array [
+              Object {
+                "children": Array [],
+                "parent": [Circular],
+                "pos": Object {
+                  "end": 28,
+                  "start": 17,
+                },
+                "text": "testcommand",
+                "type": "Text",
+              },
+            ],
+          ],
+          "type": "OpCode",
+        },
+        "pos": Object {
+          "end": 50,
+          "start": 34,
+        },
+        "start": 0,
+        "type": "List",
+      },
+    ],
+    "parent": Object {
+      "children": [Circular],
+      "parent": null,
+      "path": "test.md",
+      "pos": Object {
+        "end": 52,
+        "start": 0,
+      },
+      "raw": "
+!SWEARIHATEIT[](testcommand)(@d 
+    - 1
+    - 2
+)
+",
+      "type": "File",
+    },
+    "pos": Object {
+      "end": 51,
+      "start": 1,
+    },
+    "type": "PrinterCmd",
+  },
+]
+`;
+
 exports[`references multiple references 1`] = `
 Array [
   Object {

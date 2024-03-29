@@ -50,6 +50,8 @@ export const ALL_COMMAND_LIST: Readonly<CommandInfo[]> = [
     command.listAllReferences,
 
     command.formulaKey,
+
+    ...command.printerCmd,
 ];
 
 export function getCommandFromOpCodeNode(

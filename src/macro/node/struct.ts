@@ -41,7 +41,7 @@ export const enum ProcessedNodeType {
     ReferenceKey = 'ReferenceKey',
     FormulaKey = 'FormulaKey',
 
-    // LatexSpecific = 'LatexSpecific', // TODO
+    PrinterCmd = 'PrinterCmd',
 
     AllApplications = 'AllApplications',
     AllReferences = 'AllReferences',
@@ -191,4 +191,11 @@ export interface TableAmountNode extends NodeProcessed {
 
     // TODO: get rid of lambdas
     numberLazy: () => number;
+}
+
+export interface PrinterCmdNode extends NodeProcessed {
+    type: ProcessedNodeType.PrinterCmd;
+
+    command: string;
+    data: Node[];
 }

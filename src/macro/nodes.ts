@@ -13,7 +13,7 @@ const ProcessedNodesByTypeMap = {
     [ProcessedNodeType.ApplicationKey]: {} as nodes.ApplicationKeyNode,
     [ProcessedNodeType.ReferenceKey]: {} as nodes.ReferenceKeyNode,
     [ProcessedNodeType.FormulaKey]: {} as nodes.FormulaKeyNode,
-    // [ProcessedNodeType.LatexSpecific]: {} as nodes.LatexSpecificNode,
+    [ProcessedNodeType.PrinterCmd]: {} as nodes.PrinterCmdNode,
     [ProcessedNodeType.AllApplications]: {} as nodes.AllApplicationsNode,
     [ProcessedNodeType.AllReferences]: {} as nodes.AllReferencesNode,
     [ProcessedNodeType.RawApplication]: {} as nodes.RawApplicationNode,

@@ -14,8 +14,19 @@ import {
 } from '../diagnostic';
 
 export const enum ArgInfoType {
+    /**
+     * returns data in `Node[]`
+     */
     NodeArray = 'NodeArray',
+
+    /**
+     * returns `string`
+     */
     Text = 'Text',
+
+    /**
+     * return `TextNode`
+     */
     TextNode = 'TextNode',
 }
 
@@ -24,7 +35,12 @@ export interface ArgInfo {
     aliases: string[];
     type: ArgInfoType;
     optional: boolean;
-    onlySpans: boolean; // No block nodes
+
+    /**
+     * Allows only Span nodes
+     * See [SPAN_NODE_TYPES]
+     */
+    onlySpans: boolean;
 }
 
 export type ParsedMacrosArguments = Record<

@@ -10,3 +10,4 @@ export { default as tableKey } from './tableKey';
 export { default as tableAmount } from './tableAmount';
 export { default as pictureAmount } from './pictureAmount';
 export { default as formulaKey } from './formulaKey';
+export { default as printerCmd } from './printerCmd';
