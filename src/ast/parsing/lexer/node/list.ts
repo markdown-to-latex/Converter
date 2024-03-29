@@ -1,6 +1,13 @@
 import { TokenParser } from '../struct';
 import { stringHexlify, Token, TokenType } from '../../tokenizer';
-import { ListItemNode, ListNode, NodeType, RawNodeType, TextNode, TokensNode } from '../../../node';
+import {
+    ListItemNode,
+    ListNode,
+    NodeType,
+    RawNodeType,
+    TextNode,
+    TokensNode,
+} from '../../../node';
 import { applyVisitors, findTokenOrNull, sliceTokenText } from '../index';
 import { DiagnoseList } from '../../../../diagnostic';
 import { getDelimiterBreaks, isPrevTokenDelimiter } from './breaks';
@@ -22,7 +29,7 @@ export function isOrderedListItem(
 ): IsListItemResult {
     let indent: number = 0;
     if (token?.type === TokenType.Spacer) {
-        console.log(`[isOrdered] token spacer: "${stringHexlify(token.text)}"`)
+        // console.log(`[isOrdered] token spacer: "${stringHexlify(token.text)}"`)
         indent = token.text.length;
         index += 1;
         token = node.tokens[index];
@@ -230,8 +237,21 @@ function parseListItem(
     };
 }
 
+// Blacklisted list parents
+const BLACKLISTED_LIST_PARENT_NODE_TYPES: (string | undefined)[] = [
+    NodeType.TableCell,
+    NodeType.TableControlCell,
+] as NodeType[];
+
 export const parseList: TokenParser = function (tokens, index) {
-    if (!isPrevTokenDelimiter(tokens.tokens[index], index, tokens)) {
+    let token = tokens.tokens[index];
+    if (!isPrevTokenDelimiter(token, index, tokens)) {
+        return null;
+    }
+
+    if (
+        BLACKLISTED_LIST_PARENT_NODE_TYPES.indexOf(tokens.parent?.type) !== -1
+    ) {
         return null;
     }
 

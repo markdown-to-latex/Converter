@@ -37,6 +37,13 @@ Programming Rust. Fast, Safe Systems Development / Second Edition.
 Sebastopol: O'Reilly Media,
 2021.`,
         ));
+
+    test('List inside table bug', () =>
+        snapshotTestTemplateInner(`
+| name |  a  | b   |
+|------|-----|-----|
+| Test | 2.5 | - a |
+`));
 });
 
 test('Complex File', () => {

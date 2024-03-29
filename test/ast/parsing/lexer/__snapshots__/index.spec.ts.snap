@@ -4527,6 +4527,231 @@ Sebastopol: O'Reilly Media,
 ]
 `;
 
+exports[`Honorable mention List inside table bug 1`] = `Array []`;
+
+exports[`Honorable mention List inside table bug 2`] = `
+Array [
+  Object {
+    "header": Array [
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [],
+                "parent": [Circular],
+                "pos": Object {
+                  "end": 7,
+                  "start": 3,
+                },
+                "text": "name",
+                "type": "Text",
+              },
+            ],
+            "parent": [Circular],
+            "pos": Object {
+              "end": 8,
+              "start": 2,
+            },
+            "type": "TableCell",
+          },
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [],
+                "parent": [Circular],
+                "pos": Object {
+                  "end": 12,
+                  "start": 11,
+                },
+                "text": "a",
+                "type": "Text",
+              },
+            ],
+            "parent": [Circular],
+            "pos": Object {
+              "end": 14,
+              "start": 9,
+            },
+            "type": "TableCell",
+          },
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [],
+                "parent": [Circular],
+                "pos": Object {
+                  "end": 17,
+                  "start": 16,
+                },
+                "text": "b",
+                "type": "Text",
+              },
+            ],
+            "parent": [Circular],
+            "pos": Object {
+              "end": 20,
+              "start": 15,
+            },
+            "type": "TableCell",
+          },
+        ],
+        "parent": [Circular],
+        "pos": Object {
+          "end": 21,
+          "start": 1,
+        },
+        "type": "TableRow",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "align": "Default",
+            "fixedWidth": undefined,
+            "joinColsRight": undefined,
+            "joinRowsUp": undefined,
+            "parent": [Circular],
+            "pos": Object {
+              "end": 29,
+              "start": 23,
+            },
+            "type": "TableControlCell",
+          },
+          Object {
+            "align": "Default",
+            "fixedWidth": undefined,
+            "joinColsRight": undefined,
+            "joinRowsUp": undefined,
+            "parent": [Circular],
+            "pos": Object {
+              "end": 35,
+              "start": 30,
+            },
+            "type": "TableControlCell",
+          },
+          Object {
+            "align": "Default",
+            "fixedWidth": undefined,
+            "joinColsRight": undefined,
+            "joinRowsUp": undefined,
+            "parent": [Circular],
+            "pos": Object {
+              "end": 41,
+              "start": 36,
+            },
+            "type": "TableControlCell",
+          },
+        ],
+        "parent": [Circular],
+        "pos": Object {
+          "end": 42,
+          "start": 22,
+        },
+        "type": "TableControlRow",
+      },
+    ],
+    "parent": Object {
+      "children": Array [
+        Object {
+          "parent": [Circular],
+          "pos": Object {
+            "end": 64,
+            "start": 0,
+          },
+          "text": "
+| name |  a  | b   |
+|------|-----|-----|
+| Test | 2.5 | - a |
+",
+          "type": "Raw",
+        },
+      ],
+      "parent": null,
+      "path": "test.md",
+      "pos": Object {
+        "end": 64,
+        "start": 0,
+      },
+      "raw": "
+| name |  a  | b   |
+|------|-----|-----|
+| Test | 2.5 | - a |
+",
+      "type": "File",
+    },
+    "pos": Object {
+      "end": 63,
+      "start": 1,
+    },
+    "rows": Array [
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [],
+                "parent": [Circular],
+                "pos": Object {
+                  "end": 49,
+                  "start": 45,
+                },
+                "text": "Test",
+                "type": "Text",
+              },
+            ],
+            "parent": [Circular],
+            "pos": Object {
+              "end": 50,
+              "start": 44,
+            },
+            "type": "TableCell",
+          },
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [],
+                "parent": [Circular],
+                "pos": Object {
+                  "end": 55,
+                  "start": 52,
+                },
+                "text": "2.5",
+                "type": "Text",
+              },
+            ],
+            "parent": [Circular],
+            "pos": Object {
+              "end": 56,
+              "start": 51,
+            },
+            "type": "TableCell",
+          },
+          Object {
+            "align": "Default",
+            "fixedWidth": undefined,
+            "joinColsRight": undefined,
+            "joinRowsUp": undefined,
+            "parent": [Circular],
+            "pos": Object {
+              "end": 62,
+              "start": 57,
+            },
+            "type": "TableControlCell",
+          },
+        ],
+        "parent": [Circular],
+        "pos": Object {
+          "end": 63,
+          "start": 43,
+        },
+        "type": "TableControlRow",
+      },
+    ],
+    "type": "Table",
+  },
+]
+`;
+
 exports[`Honorable mention List item error defining bug 1`] = `
 Array [
   Object {
