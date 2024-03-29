@@ -6420,6 +6420,7 @@ Array [
         "children": Array [
           Object {
             "align": "Default",
+            "fixedWidth": undefined,
             "joinColsRight": undefined,
             "joinRowsUp": undefined,
             "parent": [Circular],
@@ -6431,6 +6432,7 @@ Array [
           },
           Object {
             "align": "Default",
+            "fixedWidth": undefined,
             "joinColsRight": undefined,
             "joinRowsUp": undefined,
             "parent": [Circular],
@@ -6597,6 +6599,7 @@ Array [
         "children": Array [
           Object {
             "align": "Default",
+            "fixedWidth": undefined,
             "joinColsRight": undefined,
             "joinRowsUp": undefined,
             "parent": [Circular],
@@ -6608,6 +6611,7 @@ Array [
           },
           Object {
             "align": "Default",
+            "fixedWidth": undefined,
             "joinColsRight": undefined,
             "joinRowsUp": undefined,
             "parent": [Circular],
@@ -6808,6 +6812,7 @@ Array [
         "children": Array [
           Object {
             "align": "Default",
+            "fixedWidth": undefined,
             "joinColsRight": undefined,
             "joinRowsUp": undefined,
             "parent": [Circular],
@@ -6819,6 +6824,7 @@ Array [
           },
           Object {
             "align": "Default",
+            "fixedWidth": undefined,
             "joinColsRight": undefined,
             "joinRowsUp": undefined,
             "parent": [Circular],
@@ -6927,6 +6933,185 @@ Array [
 ]
 `;
 
+exports[`table parsing Fixed width 1`] = `
+Array [
+  Object {
+    "header": Array [
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [],
+                "parent": [Circular],
+                "pos": Object {
+                  "end": 9,
+                  "start": 4,
+                },
+                "text": "Col 1",
+                "type": "Text",
+              },
+            ],
+            "parent": [Circular],
+            "pos": Object {
+              "end": 11,
+              "start": 2,
+            },
+            "type": "TableCell",
+          },
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [],
+                "parent": [Circular],
+                "pos": Object {
+                  "end": 19,
+                  "start": 14,
+                },
+                "text": "Col 2",
+                "type": "Text",
+              },
+            ],
+            "parent": [Circular],
+            "pos": Object {
+              "end": 22,
+              "start": 12,
+            },
+            "type": "TableCell",
+          },
+        ],
+        "parent": [Circular],
+        "pos": Object {
+          "end": 23,
+          "start": 1,
+        },
+        "type": "TableRow",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "align": "Default",
+            "fixedWidth": "6cm",
+            "joinColsRight": undefined,
+            "joinRowsUp": undefined,
+            "parent": [Circular],
+            "pos": Object {
+              "end": 34,
+              "start": 25,
+            },
+            "type": "TableControlCell",
+          },
+          Object {
+            "align": "Center",
+            "fixedWidth": "5cm",
+            "joinColsRight": undefined,
+            "joinRowsUp": undefined,
+            "parent": [Circular],
+            "pos": Object {
+              "end": 45,
+              "start": 35,
+            },
+            "type": "TableControlCell",
+          },
+        ],
+        "parent": [Circular],
+        "pos": Object {
+          "end": 46,
+          "start": 24,
+        },
+        "type": "TableControlRow",
+      },
+    ],
+    "parent": Object {
+      "children": Array [
+        Object {
+          "parent": [Circular],
+          "pos": Object {
+            "end": 70,
+            "start": 0,
+          },
+          "text": "
+|  Col 1  |  Col 2   |
+|--(6cm)--|:-(5cm)--:|
+| Content | Content2 |
+",
+          "type": "Raw",
+        },
+      ],
+      "parent": null,
+      "path": "test.md",
+      "pos": Object {
+        "end": 70,
+        "start": 0,
+      },
+      "raw": "
+|  Col 1  |  Col 2   |
+|--(6cm)--|:-(5cm)--:|
+| Content | Content2 |
+",
+      "type": "File",
+    },
+    "pos": Object {
+      "end": 69,
+      "start": 1,
+    },
+    "rows": Array [
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [],
+                "parent": [Circular],
+                "pos": Object {
+                  "end": 56,
+                  "start": 49,
+                },
+                "text": "Content",
+                "type": "Text",
+              },
+            ],
+            "parent": [Circular],
+            "pos": Object {
+              "end": 57,
+              "start": 48,
+            },
+            "type": "TableCell",
+          },
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [],
+                "parent": [Circular],
+                "pos": Object {
+                  "end": 67,
+                  "start": 59,
+                },
+                "text": "Content2",
+                "type": "Text",
+              },
+            ],
+            "parent": [Circular],
+            "pos": Object {
+              "end": 68,
+              "start": 58,
+            },
+            "type": "TableCell",
+          },
+        ],
+        "parent": [Circular],
+        "pos": Object {
+          "end": 69,
+          "start": 47,
+        },
+        "type": "TableRow",
+      },
+    ],
+    "type": "Table",
+  },
+]
+`;
+
 exports[`table parsing Simple 1`] = `
 Array [
   Object {
@@ -6985,6 +7170,7 @@ Array [
         "children": Array [
           Object {
             "align": "Default",
+            "fixedWidth": undefined,
             "joinColsRight": undefined,
             "joinRowsUp": undefined,
             "parent": [Circular],
@@ -6996,6 +7182,7 @@ Array [
           },
           Object {
             "align": "Default",
+            "fixedWidth": undefined,
             "joinColsRight": undefined,
             "joinRowsUp": undefined,
             "parent": [Circular],
@@ -7257,6 +7444,7 @@ Array [
         "children": Array [
           Object {
             "align": "Default",
+            "fixedWidth": undefined,
             "joinColsRight": undefined,
             "joinRowsUp": undefined,
             "parent": [Circular],
@@ -7268,6 +7456,7 @@ Array [
           },
           Object {
             "align": "Default",
+            "fixedWidth": undefined,
             "joinColsRight": undefined,
             "joinRowsUp": undefined,
             "parent": [Circular],
@@ -7403,6 +7592,7 @@ Array [
         "children": Array [
           Object {
             "align": "Right",
+            "fixedWidth": undefined,
             "joinColsRight": undefined,
             "joinRowsUp": undefined,
             "parent": [Circular],
@@ -7414,6 +7604,7 @@ Array [
           },
           Object {
             "align": "Left",
+            "fixedWidth": undefined,
             "joinColsRight": undefined,
             "joinRowsUp": undefined,
             "parent": [Circular],

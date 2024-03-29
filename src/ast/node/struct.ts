@@ -310,6 +310,7 @@ export const enum NodeTableAlign {
 export interface TableControlCellNode extends Node {
     type: NodeType.TableControlCell;
     align?: NodeTableAlign;
+    fixedWidth?: string;
     joinRowsUp?: number;
     joinColsRight?: number;
 }

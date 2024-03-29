@@ -2,7 +2,6 @@ import {
     CodeNode,
     CodeSpanNode,
     CommentNode,
-    FileNode,
     FormulaNode,
     FormulaSpanNode,
     HeadingNode,
@@ -11,17 +10,13 @@ import {
     LatexSpanNode,
     LinkNode,
     ListNode,
+    NodeTableAlign,
     NodeType,
-    NonBreakingSpaceNode,
     OpCodeNode,
     ParagraphNode,
-    RawNode,
-    RawNodeType,
+    TableControlRowNode,
     TableNode,
-    TextNode,
-    ThinNonBreakingSpaceNode,
 } from '../../../../src/ast/node';
-import { fullContentPos } from '../../../../src/ast/parsing';
 import { applyVisitors } from '../../../../src/ast/parsing/lexer';
 import { rawNodeTemplate } from './utils';
 
@@ -424,6 +419,34 @@ describe('table parsing', () => {
         expect(diagnostic).toHaveLength(0);
         expect(nodes).toHaveLength(1);
         expect(nodes[0].type).toEqual(NodeType.Table);
+
+        expect(nodes).toMatchSnapshot();
+    });
+
+    test('Fixed width', () => {
+        const rawNode = rawNodeTemplate(`
+|  Col 1  |  Col 2   |
+|--(6cm)--|:-(5cm)--:|
+| Content | Content2 |
+`);
+        const { nodes, diagnostic } = applyVisitors([rawNode]);
+        expect(diagnostic).toHaveLength(0);
+        expect(nodes).toHaveLength(1);
+
+        let node = nodes[0] as TableNode;
+        expect(node).not.toBeUndefined();
+        expect(node.type).toEqual(NodeType.Table);
+
+        expect(node.header.length).toEqual(2);
+        expect(node.rows.length).toEqual(1);
+
+        const controlRow = node.header[1] as TableControlRowNode;
+        expect(controlRow.children.length).toEqual(2);
+
+        expect(controlRow.children[0].align).toEqual(NodeTableAlign.Default);
+        expect(controlRow.children[0].fixedWidth).toEqual('6cm');
+        expect(controlRow.children[1].align).toEqual(NodeTableAlign.Center);
+        expect(controlRow.children[1].fixedWidth).toEqual('5cm');
 
         expect(nodes).toMatchSnapshot();
     });

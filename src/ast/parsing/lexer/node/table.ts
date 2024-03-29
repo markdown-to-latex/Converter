@@ -41,6 +41,7 @@ const isTableControlCell: TokenPredicate = function (token, index, node) {
 
 interface ParseControlCellResult {
     align?: NodeTableAlign;
+    fixedWidth?: string;
     joinRowsUp?: number;
     joinColsRight?: number;
 
@@ -65,8 +66,21 @@ function parseControlCell(text: string): ParseControlCellResult {
         return NodeTableAlign.Default;
     })();
 
+    const width: string | undefined = (() => {
+        const leftBracketIdx = text.indexOf('(');
+        const rightBracketIdx = text.indexOf(')');
+        if (
+            leftBracketIdx !== -1 &&
+            rightBracketIdx !== -1 &&
+            leftBracketIdx < rightBracketIdx
+        ) {
+            return text.slice(leftBracketIdx + 1, rightBracketIdx);
+        }
+    })();
+
     return {
         align,
+        fixedWidth: width,
 
         // TODO: Add join rows parsing
 
@@ -170,6 +184,7 @@ function parseTableLine(
 
                 // TODO: encapsulate into an object
                 align: controlParserResult.align,
+                fixedWidth: controlParserResult.fixedWidth,
                 joinRowsUp: controlParserResult.joinRowsUp,
                 joinColsRight: controlParserResult.joinColsRight,
             } as TableControlCellNode;

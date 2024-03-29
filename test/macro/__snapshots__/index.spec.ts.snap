@@ -2487,6 +2487,7 @@ Array [
         "children": Array [
           Object {
             "align": "Default",
+            "fixedWidth": undefined,
             "joinColsRight": undefined,
             "joinRowsUp": undefined,
             "parent": [Circular],
@@ -2498,6 +2499,7 @@ Array [
           },
           Object {
             "align": "Default",
+            "fixedWidth": undefined,
             "joinColsRight": undefined,
             "joinRowsUp": undefined,
             "parent": [Circular],
@@ -2860,6 +2862,7 @@ Array [
               "children": Array [
                 Object {
                   "align": "Default",
+                  "fixedWidth": undefined,
                   "joinColsRight": undefined,
                   "joinRowsUp": undefined,
                   "parent": [Circular],
@@ -2871,6 +2874,7 @@ Array [
                 },
                 Object {
                   "align": "Default",
+                  "fixedWidth": undefined,
                   "joinColsRight": undefined,
                   "joinRowsUp": undefined,
                   "parent": [Circular],
