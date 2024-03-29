@@ -1,6 +1,6 @@
 import { rawNodeTemplate, snapshotTestTemplateInner } from './utils';
-import fs from 'fs';
-import path from 'path';
+import * as fs from 'fs';
+import * as path from 'path';
 import { applyVisitors } from '../../../../src/ast/parsing/lexer';
 
 describe('Honorable mention', () => {

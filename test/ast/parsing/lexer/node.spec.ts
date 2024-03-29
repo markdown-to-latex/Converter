@@ -523,6 +523,28 @@ Text`);
 
         expect(nodes).toMatchSnapshot();
     });
+
+    test('Unordered List with newline separation', () => {
+        const rawNode = rawNodeTemplate(`
++ Item 1
++ Item 2
++ Item 3
+
+
++ Item 4`);
+
+        const { nodes, diagnostic } = applyVisitors([rawNode]);
+        expect(diagnostic).toHaveLength(0);
+        expect(nodes).toHaveLength(2);
+        const list1 = nodes[0] as ListNode;
+        const list2 = nodes[1] as ListNode;
+        expect(list1.type).toEqual(NodeType.List);
+        expect(list1.children).toHaveLength(3);
+        expect(list2.type).toEqual(NodeType.List);
+        expect(list2.children).toHaveLength(1);
+
+        expect(nodes).toMatchSnapshot();
+    });
 });
 
 describe('Heading parsing', () => {

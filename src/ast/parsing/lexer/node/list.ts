@@ -1,13 +1,6 @@
 import { TokenParser } from '../struct';
-import { Token, TokenType } from '../../tokenizer';
-import {
-    ListItemNode,
-    ListNode,
-    NodeType,
-    RawNodeType,
-    TextNode,
-    TokensNode,
-} from '../../../node';
+import { stringHexlify, Token, TokenType } from '../../tokenizer';
+import { ListItemNode, ListNode, NodeType, RawNodeType, TextNode, TokensNode } from '../../../node';
 import { applyVisitors, findTokenOrNull, sliceTokenText } from '../index';
 import { DiagnoseList } from '../../../../diagnostic';
 import { getDelimiterBreaks, isPrevTokenDelimiter } from './breaks';
@@ -29,6 +22,7 @@ export function isOrderedListItem(
 ): IsListItemResult {
     let indent: number = 0;
     if (token?.type === TokenType.Spacer) {
+        console.log(`[isOrdered] token spacer: "${stringHexlify(token.text)}"`)
         indent = token.text.length;
         index += 1;
         token = node.tokens[index];
@@ -62,6 +56,7 @@ export function isUnorderedListItem(
 ): IsListItemResult {
     let indent: number = 0;
     if (token?.type === TokenType.Spacer) {
+        // console.log(`[isUnordered] token spacer: "${stringHexlify(token.text)}"`)
         indent = token.text.length;
         index += 1;
         token = node.tokens[index];
@@ -90,8 +85,13 @@ function parseListItem(
     const diagnostic: DiagnoseList = [];
     let token = tokens.tokens[index];
 
+    if (token.type === TokenType.Delimiter && getDelimiterBreaks(token) > 2) {
+        return null;
+    }
+
     let spacers: number = 0;
     if (token.type === TokenType.Spacer) {
+        // console.log(`[parseListItem] token spacer: "${stringHexlify(token.text)}"`)
         spacers = token.text.length;
 
         index += 1;
@@ -132,10 +132,17 @@ function parseListItem(
     );
     let lineDelimiterIndex = delimiter?.index ?? tokens.tokens.length;
 
+    // Collect item text
     while (lineDelimiterIndex < tokens.tokens.length) {
         const prevIndex = lineDelimiterIndex + 1;
-        if (delimiter && getDelimiterBreaks(delimiter.token) > 1) {
-            break; // Found \n\n
+        if (delimiter) {
+            if (getDelimiterBreaks(delimiter.token) > 2) {
+                lineDelimiterIndex = lineDelimiterIndex - 1;
+                break; // Found \n\n\n, start new list
+            }
+            if (getDelimiterBreaks(delimiter.token) > 1) {
+                break; // Found \n\n, start new list item
+            }
         }
 
         const startToken = tokens.tokens[prevIndex];
@@ -155,7 +162,7 @@ function parseListItem(
             (asUnorderedListItem.result &&
                 asUnorderedListItem.indent <= spacers)
         ) {
-            break; // Found same or parent list item
+            break; // Found same-level or parent-level list item
         }
 
         delimiter = findTokenOrNull(

@@ -13,7 +13,7 @@ export interface TokenizeResult {
 }
 
 export const enum TokenType {
-    Spacer = 'Spacer' /* Spaces, tabs, line breaks */,
+    Spacer = 'Spacer' /* Spaces, tabs */,
     SeparatedSpecial = 'SeparatedSpecial' /* Brackets, semicolons */,
     JoinableSpecial = 'JoinableSpecial' /* Octothorpe, backticks */,
     Delimiter = 'Delimiter' /* Line break */,
@@ -78,7 +78,6 @@ const TOKENIZING_REGEXP = new RegExp(
         .join('|'),
     'g',
 );
-console.log(TOKENIZING_REGEXP);
 
 export function tokenize(text: string, basePos: number = 0): TokenizeResult {
     const tokens = Array.from(text.matchAll(TOKENIZING_REGEXP)).flatMap(
